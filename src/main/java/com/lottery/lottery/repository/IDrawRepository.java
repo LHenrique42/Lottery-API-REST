@@ -1,5 +1,7 @@
 package com.lottery.lottery.repository;
 
+import java.util.ArrayList;
+
 import com.lottery.lottery.model.Draw;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,5 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface IDrawRepository extends JpaRepository<Draw, Long>{
     
     Draw findById(long id);
-    Draw findByUserId(String email);
+    ArrayList<Draw> findByUserId(long id);
+    Draw save(String email);
 }

@@ -1,8 +1,5 @@
 package com.lottery.lottery.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,8 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
-
 @Entity
 @Table(name="Draw")
 public class Draw {
@@ -23,11 +20,14 @@ public class Draw {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Getter
+    @Setter
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="USER_ID")
     private User user;
 
     @Getter
     @Setter
-    private Set<String> numbers = new HashSet<>();
+    @NonNull
+    private String numbers;
 }

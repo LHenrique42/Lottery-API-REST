@@ -8,24 +8,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 @Entity
-@Table(name="Lottery")
+@Table(name="Customer")
 public class User {
 
     private static final long serialVersion = 1L;
 
     @Id
+    @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Getter
     @Setter
+    @NonNull
     private String name;
 
     @Getter
     @Setter
     @Column(unique = true)
+    @NonNull
     private String email;
 }
